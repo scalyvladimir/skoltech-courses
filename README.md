@@ -2,7 +2,7 @@
 
 ### Term 1
 | Course Name| ID | Grade | Link to materials |
-| :----------- |-----------: | :-----------: | :-----------: |
+| :-----------: | :-----------: | :-----------: | :-----------: |
 | Introduction to Data Science|[MA030111](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030111.pdf?v=mfdn6y)		|85% (A)| [\*click\*](Intro%20to%20DS/)|
 | Scientific Computing|[MA060113](http://files.skoltech.ru/data/edu/syllabuses/2021/MA060113.pdf?v=jc8z2d)		|65.93% (C)| [\*click\*](Scientific%20Computing/)|
 
