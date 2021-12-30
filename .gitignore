@@ -9,3 +9,4 @@ venv/
 *.csv
 *.xml
 *.iml
+.DS_Store
