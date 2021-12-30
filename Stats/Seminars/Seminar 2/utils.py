@@ -1,0 +1,142 @@
+import numpy as np
+import matplotlib
+import matplotlib as mp
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.collections import PolyCollection
+from matplotlib.colors import colorConverter
+
+titlesize = 20
+labelsize = 16
+legendsize = labelsize
+xticksize = 14
+yticksize = xticksize
+
+matplotlib.rcParams['legend.markerscale'] = 1.5     # the relative size of legend markers vs. original
+matplotlib.rcParams['legend.handletextpad'] = 0.5
+matplotlib.rcParams['legend.labelspacing'] = 0.4    # the vertical space between the legend entries in fraction of fontsize
+matplotlib.rcParams['legend.borderpad'] = 0.5       # border whitespace in fontsize units
+matplotlib.rcParams['font.size'] = 12
+matplotlib.rcParams['font.family'] = 'serif'
+matplotlib.rcParams['font.serif'] = 'Times New Roman'
+matplotlib.rcParams['mathtext.fontset']='cm'
+matplotlib.rcParams['axes.labelsize'] = labelsize
+matplotlib.rcParams['axes.titlesize'] = titlesize
+
+matplotlib.rc('xtick', labelsize=xticksize)
+matplotlib.rc('ytick', labelsize=yticksize)
+matplotlib.rc('legend', fontsize=legendsize)
+
+matplotlib.rc('font', **{'family':'serif'})
+
+
+def plot_empirical_pdf(x, y, ax, grid=True, color='b', border_ext=0.05,
+                       xlim=None, ylim=None,
+                       xlabel=None, ylabel=None, title=None, label=None,
+                       arrowwidth=None, headwidth=3, headlength=5,
+                       verbose=False, gen_pdf=None, gen_color="r--"):
+    """
+    Plot PDF of empirical (discrete) distribution.
+    - ax:          This is the axis to plot data in.
+    - grid:        If True, grid is plotted; default is True.
+    - color:       Color for plotting arrows (delta-functions); default is black ('k').
+    - border_ext:  Vertical and horizontal ranges will be expaned by (bordered_ext * 100)% of data ranges; 
+        this parameter is not taken into account for axis X or Y if xlim or ylim are passed, respectively.
+    - xlim:        Tuple (xmin, xmax); eliminates effect of border_ext.
+    - ylim:        Tuple (ymin, ymax); eliminates effect of border_ext.
+    - xlabel:      Lable for axis X.
+    - ylabel:      Label for axis Y.
+    - title:       title.
+    - label:       Label to be shown in legend.
+    - arrowwidth:  The absolute width of arrows used to represent delta functions of discrete PDF.
+    - headwidth:   The relative width of arrows' heads; the default value is 3 absolute arrow widths.
+    - headlength: 
+    - verbose:     If True, prints debug information; default is False.
+    """
+    assert len(x) == len(y)
+    x_width = np.max(x) - np.min(x) # ширина по оси X
+    y_width = np.max(y)             # ширина по оси Y (минимальное значение - 0)
+    if verbose:
+        print('plot_point_masses: x_width = {}, y_width = {}, border_ext = {}'.format(x_width, y_width, border_ext))
+    if arrowwidth is None:
+        arrowwidth = 0.005 * y_width
+    else:
+        arrowwidth = arrowwidth * y_width
+    X = x
+    Y = np.zeros_like(X)
+    U = np.zeros_like(X)
+    V = y
+    ax.quiver(X, Y, U, V, units='y', scale=1, scale_units='y', zorder=2,
+              width=arrowwidth, headwidth=headwidth, headlength=headlength, color=color, label="Empirical " + title)
+    if gen_pdf is not None:
+        ax.plot(x, gen_pdf(x), gen_color, label="True " + title)
+    x_low  = np.min(x) - border_ext * x_width
+    x_high = np.max(x) + border_ext * x_width
+    y_low = 0
+    y_high = np.max(y) + border_ext * y_width
+    # GRID
+    if grid: ax.grid(which='both', linestyle='--', alpha=0.5)
+    # LIMITS
+    if xlim is None: xlim = (x_low, x_high)
+    if ylim is None: ylim = (y_low, y_high)
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+    if verbose:
+        print('plot_point_masses: xlim is set to ({:.2f}, {:.2f})'.format(xlim[0], xlim[1]))
+        print('plot_point_masses: ylim is set to ({:.2f}, {:.2f})'.format(ylim[0], ylim[1]))
+    # LABELS
+    if xlabel is not None: ax.set_xlabel(xlabel)
+    if ylabel is not None: ax.set_ylabel(ylabel)
+    if title is not None:  ax.set_title(title)
+    ax.legend()
+    return ax
+
+
+def plot_empirical_cdf(points, cumulatives, ax, grid=True, color='b', border_ext=0.05, 
+                       xlim=None, ylim=None, xlabel=None, ylabel=None, title=None, label=None,
+                       verbose=False, gen=None, gen_color="r--"):
+    """
+    Plot CDF of empirical (discrete) distribution.
+    - points:      Coordinates of point masses
+    - cumulatives: CDF values.
+        It is assumed, that cumulatives[i] gives CDF value at intervals [points[i], points[i + 1]]
+    - ax:          This is the axis to plot data in.
+    - grid:        If True, grid is plotted; default is True.
+    - color:       Color for plotting CDF; default is blue ('b').
+    - border_ext:  Vertical and horizontal ranges will be expaned by (bordered_ext * 100)% of data ranges; 
+        this parameter is not taken into account for axis X or Y if xlim or ylim are passed, respectively.
+    - xlim:        Tuple (xmin, xmax); eliminates effect of border_ext.
+    - ylim:        Tuple (ymin, ymax); eliminates effect of border_ext.
+    - xlabel:      Lable for axis X.
+    - ylabel:      Label for axis Y.
+    - title:       title.
+    - label:       Label to be shown in legend.
+    - verbose:     If True, prints debug information; default is False.
+    """
+    y_low = 0; y_high = 1.0 + border_ext
+    
+    x_min = points[0]
+    x_max = points[-1]
+    x_width = x_max - x_min
+    x_low  = x_min - border_ext * x_width
+    x_high = x_max + border_ext * x_width
+
+    ax.step(points, cumulatives, where='post', label="Empirical CDF", color=color, zorder=2)
+    if gen is not None:
+        ax.plot(points, gen.cdf(points), gen_color, label="True CDF")
+    # GRID
+    if grid: ax.grid(which='both', linestyle='--', alpha=0.5)
+    # LIMITS
+    if xlim is None: xlim = (x_low, x_high)
+    if ylim is None: ylim = (y_low, y_high)
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+    if verbose:
+        print('plot_point_masses: xlim is set to ({:.2f}, {:.2f})'.format(xlim[0], xlim[1]))
+        print('plot_point_masses: ylim is set to ({:.2f}, {:.2f})'.format(ylim[0], ylim[1]))
+    # LABELS
+    if xlabel is not None: ax.set_xlabel(xlabel)
+    if ylabel is not None: ax.set_ylabel(ylabel)
+    if title  is not None: ax.set_title(title)
+    ax.legend()
+    return ax 
