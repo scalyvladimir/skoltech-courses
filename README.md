@@ -3,7 +3,7 @@
 ### Courses:
 Course ID | Grade | Link to solutions |
 :----------- | :-----------: | :-----------: |
-[MA030367](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030367.pdf?v=isslh1)		|[ft_substr](#ft_substr)    | [ft_lstnew](ft_libft/ft_lstnew.c)            | 
+[MA030367](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030367.pdf?v=isslh1)		|87.41% (A)| [ft_lstnew](ft_libft/ft_lstnew.c)            | 
 [ft_bzero](#ft_bzero)		|[ft_strjoin](#ft_strjoin)  | [ft_lstadd_front](ft_libft/ft_lstadd_front.c)| 
 [ft_memcpy](#ft_memcpy)		|[ft_strtrim](#ft_strjoin)  | [ft_lstsize](ft_libft/ft_lstsize.c)          |   
 [ft_memccpy](#ft_memccpy)	|[ft_split](#ft_split)      | [ft_lstlast](ft_libft/ft_lstlast.c)          |
