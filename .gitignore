@@ -1,8 +1,12 @@
 Micha_Gorelick_Ian_Ozsvald_High_Performance_Python_Practical_Performant.pdf
 Larry_Wasserman_All_of_Statistics_A_Concise_Course_in_Statistical.pdf
 venv/
+.idea/
 .ipynb_checkpoints/
 *.rar
 *.zip
 *.jar
 *.csv
+*.xml
+*.iml
+.DS_Store
