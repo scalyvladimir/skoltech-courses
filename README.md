@@ -5,5 +5,6 @@
 **Term 1**
 | Course Name| ID | Grade | Link to materials |
 | :----------- |-----------: | :-----------: | :-----------: |
-High Perfomance Python Lab|[MA030367](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030367.pdf?v=isslh1)		|87.41% (A)| [\*click\*](HPPython/)| 
-
+| High Perfomance Python Lab|[MA030367](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030367.pdf?v=isslh1)		|87.41% (A)| [\*click\*](HPPython/)|
+| Principles of Applied Statistics|[MA030416](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030416.pdf?v=v7h4vt)		|76.3% (B)| [\*click\*](Stats/)|
+| High Perfomance Python Lab|[MA030367](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030367.pdf?v=isslh1)		|87.41% (A)| [\*click\*](HPPython/)|
