@@ -17,7 +17,7 @@
 | Course Name| ID | Grade | Link to materials |
 | :----------- | :-----------: | -----------: | :-----------: |
 | Machine Learning|[MA060018](http://files.skoltech.ru/data/edu/syllabuses/2021/MA060018.pdf?v=x1tayy)		|77.5% (B)| [\*click\*](ML/)|
-| Introduction to Recomennder Systems|[MA030499](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030499.pdf?v=ox3cu)		|82.8% (B)| [\*click\*](RecSys/)|
+| Introduction to Recommender Systems|[MA030499](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030499.pdf?v=ox3cu)		|82.8% (B)| [\*click\*](RecSys/)|
 
 ### Term 4
 | Course Name| ID | Grade | Link to materials |
