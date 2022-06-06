@@ -22,4 +22,4 @@
 ### Term 4
 | Course Name| ID | Grade | Link to materials |
 | :----------- | :-----------: | -----------: | :-----------: |
-| Deep Learning|[DA060057](http://files.skoltech.ru/data/edu/syllabuses/2021/DA060057.pdf?v=gmfzcm)		|In progress| [\*click\*](DL/)|
+| Deep Learning|[DA060057](http://files.skoltech.ru/data/edu/syllabuses/2021/DA060057.pdf?v=gmfzcm)		|89.03% (A)| [\*click\*](DL/)|
