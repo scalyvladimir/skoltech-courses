@@ -13,6 +13,11 @@
 | Principles of Applied Statistics|[MA030416](http://files.skoltech.ru/data/edu/syllabuses/2021/MA030416.pdf?v=v7h4vt)		|76.3% (B)| [\*click\*](Stats/)|
 | Numerical Linear Algebra|[MA060024](http://files.skoltech.ru/data/edu/syllabuses/2021/MA060024.pdf?v=5pb7le)		|78.32% (B)| [\*click\*](NLA/)|
 
+### Winter Term
+| Course Name| ID | Grade | Link to materials |
+| :----------- | :-----------: | -----------: | :-----------: |
+| Neural Networks Speed-up and Compression|[I-19-21](http://files.skoltech.ru/data/edu/syllabuses/2021/I-19-21.pdf)		|Pass | [\*click\*](NNs Speedup & Compression/)|
+
 ### Term 3
 | Course Name| ID | Grade | Link to materials |
 | :----------- | :-----------: | -----------: | :-----------: |
