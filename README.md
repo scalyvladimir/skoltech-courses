@@ -16,7 +16,7 @@
 ### Winter Term
 | Course Name| ID | Grade | Link to materials |
 | :----------- | :-----------: | -----------: | :-----------: |
-| Neural Networks Speed-up and Compression|[I-19-21](http://files.skoltech.ru/data/edu/syllabuses/2021/I-19-21.pdf)		|Pass | [\*click\*](NNs Speedup & Compression)|
+| Neural Networks Speed-up and Compression|[I-19-21](http://files.skoltech.ru/data/edu/syllabuses/2021/I-19-21.pdf)		|Pass | [\*click\*](NNs%20Speedup%20%26%20Compression)|
 
 ### Term 3
 | Course Name| ID | Grade | Link to materials |
